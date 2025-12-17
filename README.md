@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Marina Medeiros - Advocacia Especializada</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --whatsapp-green: #25d366;
+            --gold-primary: #d4af37;  /* Amarelo dourado suave */
+            --dark-gold: #b8860b;     /* Amarelo mais escuro */
+            --calm-yellow: #fff8e1;   /* Amarelo claro de calmaria */
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #fefefe;
+        }
+        
+        /* Fundo com padrão jurídico sutil */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* WhatsApp Flutuante GRANDE */
+        .whatsapp-float {
+            position: fixed;
+            width: 90px;
+            height: 90px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 45px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .whatsapp-float:hover { 
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Cabeçalho FIXO */
+        header {
+            background: rgba(255, 248, 225, 0.98); /* Amarelo claro de calmaria */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Título 50% maior */
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--dark-gold), #b28704);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Subtítulo 50% maior */
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #5d4037; /* Marrom suave */
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Botão amarelo dourado */
+        .gold-button {
+            background: linear-gradient(135deg, var(--gold-primary), var(--dark-gold));
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+        .gold-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
+            color: white;
+            background: linear-gradient(135deg, var(--dark-gold), var(--gold-primary));
+        }
+        
+        /* Foto placeholder */
+        .photo-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #f5f5f5, #eeeeee);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #757575;
+            border: 4px dashed #bdbdbd;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 5;
+            margin: 0 auto;
+        }
+        .photo-placeholder:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+        
+        /* Cards de especialidades */
+        .service-card {
+            border: 2px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s;
+            height: 100%;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.1);
+            border-color: var(--gold-primary);
+            background: linear-gradient(135deg, #fff8e1, #ffffff);
+        }
+        
+        .price-tag {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--dark-gold);
+            margin: 20px 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        /* Botão no header */
+        .header-contact-btn {
+            background: linear-gradient(135deg, var(--gold-primary), var(--dark-gold));
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+        }
+        .header-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+            color: white;
+        }
+        
+        /* Badge de credencial */
+        .credential-badge {
+            background: linear-gradient(135deg, var(--gold-primary), var(--dark-gold));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 1200px) {
+            .photo-placeholder { max-width: 450px; height: 450px; }
+        }
+        
+        @media (max-width: 992px) {
+            .hero { padding: 70px 0; }
+            .hero-title { font-size: 2.8rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .photo-placeholder { max-width: 400px; height: 400px; }
+        }
+        
+        @media (max-width: 768px) {
+            .hero { padding: 50px 0; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .gold-button { padding: 15px 35px; font-size: 1.2rem; }
+            .photo-placeholder { max-width: 300px; height: 300px; }
+            .whatsapp-float { width: 70px; height: 70px; font-size: 35px; }
+            .header-contact-btn { padding: 10px 25px; font-size: 0.95rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-placeholder { max-width: 280px; height: 280px; }
+        }
+        
+        /* Estilos específicos para advocacia */
+        .law-icon {
+            color: var(--gold-primary);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .specialty-list {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+        }
+        
+        .specialty-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #5d4037;
+        }
+        
+        .specialty-list li:before {
+            content: "⚖️";
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Flutuante GRANDE -->
+    <a href="https://wa.me/554497359586?text=Olá,%20Dra.%20Marina,%20gostaria%20de%20agendar%20uma%20consulta%20jurídica" 
+       class="whatsapp-float" target="_blank" title="Fale com a Dra. Marina pelo WhatsApp">
+       <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Cabeçalho FIXO -->
+    <header>
+        <div class="container py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h4 mb-1 fw-900" style="font-size: 1.4rem; color: #5d4037;">
+                        Dra. Marina Medeiros
+                    </h1>
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <p class="small mb-0 fw-600" style="color: #8d6e63;">Advogada Especializada | OAB/PR 123.456</p>
+                        <span style="color: var(--gold-primary);">•</span>
+                        <p class="small mb-0 fw-500" style="color: #8d6e63;">
+                            Mestre em Direito pela Universidade de São Paulo (USP)
+                        </p>
+                    </div>
+                </div>
+                <a href="https://wa.me/554497359586?text=Olá,%20Dra.%20Marina,%20gostaria%20de%20agendar%20uma%20consulta%20jurídica" 
+                   class="header-contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp me-2"></i> Consulta Jurídica
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Principal -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Defesa Jurídica com Ética e Excelência</h1>
+            <p class="hero-subtitle">Atendimento jurídico personalizado com compromisso, sigilo e expertise comprovada</p>
+            
+            <div class="row align-items-center mt-5">
+                <div class="col-lg-6">
+                    <!-- Espaço para FOTO DA DRA. MARINA -->
+                    <div class="photo-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-balance-scale fa-4x mb-3" style="color: var(--gold-primary);"></i><br>
+                            <span class="fw-bold fs-5">FOTO DA DRA. MARINA AQUI<br><small class="fw-normal">(Traje profissional)</small></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="h2 fw-900 mb-4" style="color: #5d4037;">Consulta Jurídica Online</h2>
+                    <div class="price-tag">R$ 250,00</div>
+                    <p class="mb-4 fs-5" style="color: #5d4037;">
+                        <i class="fas fa-clock me-2" style="color: var(--gold-primary);"></i> 50 minutos por videochamada<br>
+                        <i class="fas fa-gavel me-2" style="color: var(--gold-primary);"></i> Análise detalhada do seu caso
+                    </p>
+                    <a href="https://wa.me/554497359586?text=Olá,%20Dra.%20Marina,%20gostaria%20de%20agendar%20uma%20consulta%20jurídica%20de%2050%20minutos%20(R$%20250,00)" 
+                       class="gold-button" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Agendar Consulta
+                    </a>
+                    <p class="small mt-3" style="color: #8d6e63;">
+                        <i class="fas fa-shield-alt me-1" style="color: var(--gold-primary);"></i> Sigilo profissional garantido
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades Jurídicas -->
+    <section class="py-5" style="background-color: #fffef7;">
+        <div class="container">
+            <h2 class="text-center display-5 fw-900 mb-5" style="color: #5d4037;">
+                Áreas de Atuação
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="law-icon">⚖️</div>
+                        <h3 class="h4 fw-800" style="color: #5d4037;">Direito Civil</h3>
+                        <p class="text-muted">Contratos, indenizações, responsabilidade civil, direitos do consumidor</p>
+                        <ul class="specialty-list mt-3">
+                            <li>Contratos e Obrigações</li>
+                            <li>Responsabilidade Civil</li>
+                            <li>Direito do Consumidor</li>
+                            <li>Direitos Reais</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="law-icon">👨‍👩‍👧‍👦</div>
+                        <h3 class="h4 fw-800" style="color: #5d4037;">Direito de Família</h3>
+                        <p class="text-muted">Divórcio, guarda de filhos, pensão alimentícia, inventário</p>
+                        <ul class="specialty-list mt-3">
+                            <li>Divórcio e Separação</li>
+                            <li>Guarda e Visitação</li>
+                            <li>Pensão Alimentícia</li>
+                            <li>Inventário e Partilha</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="law-icon">💼</div>
+                        <h3 class="h4 fw-800" style="color: #5d4037;">Direito Trabalhista</h3>
+                        <p class="text-muted">Rescisões, assédio moral, horas extras, direitos trabalhistas</p>
+                        <ul class="specialty-list mt-3">
+                            <li>Rescisão Contratual</li>
+                            <li>Assédio Moral</li>
+                            <li>Horas Extras</li>
+                            <li>Acidente de Trabalho</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="law-icon">🏠</div>
+                        <h3 class="h4 fw-800" style="color: #5d4037;">Direito Imobiliário</h3>
+                        <p class="text-muted">Compra e venda, locação, usucapião, regularização de imóveis</p>
+                        <ul class="specialty-list mt-3">
+                            <li>Compra e Venda</li>
+                            <li>Contrato de Locação</li>
+                            <li>Usucapião</li>
+                            <li>Regularização</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="law-icon">📝</div>
+                        <h3 class="h4 fw-800" style="color: #5d4037;">Direito Empresarial</h3>
+                        <p class="text-muted">Constituição de empresas, recuperação judicial, contratos societários</p>
+                        <ul class="specialty-list mt-3">
+                            <li>Abertura de Empresas</li>
+                            <li>Contratos Societários</li>
+                            <li>Recuperação Judicial</li>
+                            <li>Fusões e Aquisições</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="law-icon">🛡️</div>
+                        <h3 class="h4 fw-800" style="color: #5d4037;">Direito Previdenciário</h3>
+                        <p class="text-muted">Aposentadoria, auxílio-doença, pensão por morte, benefícios do INSS</p>
+                        <ul class="specialty-list mt-3">
+                            <li>Aposentadorias</li>
+                            <li>Auxílio-Doença</li>
+                            <li>Pensão por Morte</li>
+                            <li>Revisão de Benefícios</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulta -->
+    <section class="py-5" style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);">
+        <div class="container text-center">
+            <h2 class="display-6 fw-900 mb-4" style="color: #5d4037;">Consulta Jurídica Online</h2>
+            <p class="fs-5 mb-4" style="color: #8d6e63;">Atendimento por videochamada com segurança e praticidade</p>
+            <a href="https://wa.me/554497359586?text=Olá,%20Dra.%20Marina,%20gostaria%20de%20agendar%20uma%20consulta%20jurídica%20de%2050%20minutos%20(R$%20250,00)" 
+               class="gold-button" target="_blank">
+               <i class="fab fa-whatsapp me-2"></i>Agendar Consulta - R$ 250,00
+            </a>
+            <p class="small mt-3" style="color: #8d6e63;">
+                <i class="fas fa-check-circle me-1" style="color: var(--gold-primary);"></i> Primeira consulta com análise completa do caso
+            </p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-5" style="background-color: #5d4037; color: white;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="h4 fw-900 mb-3">Dra. Marina Medeiros</h3>
+                    <p class="mb-2">
+                        <span class="credential-badge">OAB/PR 123.456</span>
+                        <span class="credential-badge ms-2">Mestre em Direito (USP)</span>
+                    </p>
+                    <p class="small mb-0" style="color: #d7ccc8;">
+                        Atendimento conforme Código de Ética da OAB e Estatuto da Advocacia
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <a href="mailto:marina.medeiros@adv.oab.pr.gov.br" 
+                       class="d-block mb-2 fw-600" style="color: white; text-decoration: none;">
+                        <i class="fas fa-envelope me-2"></i> E-mail profissional
+                    </a>
+                    <a href="https://wa.me/554497359586" 
+                       class="d-block fw-600" style="color: white; text-decoration: none;">
+                        <i class="fab fa-whatsapp me-2"></i> WhatsApp para consultas
+                    </a>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <p class="text-center small mb-0" style="color: #d7ccc8;">
+                <i class="fas fa-info-circle me-1"></i> 
+                Consulta jurídica não substitui atendimento emergencial. Em caso de urgência, procure as autoridades competentes.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
